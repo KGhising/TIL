@@ -1,6 +1,7 @@
 # TIL for java script intern
 ***
-## March 23 2020
+## March 23  2020 / Fundamentals
+---
 ### Using console `console`
 
 ```
@@ -35,3 +36,19 @@ var res = str1.concat(str2);
 
 string.concat(Hello, world!);
 ```
+## March 24 2020 / DOM
+---
+### Using `innerHTML` to add `text` in selector `id` and `style`
+```
+const selector = document.getElementById('idSelector');
+selector.innerHTML = 'Things i did today!';
+selector.style.color = "skyblue";
+```
+### Styling `li` items using `tag` , `class` , `id` selector
+```
+document.querySelector('li').style.color = 'yellow';
+document.querySelector('.select').style.color = "red";
+document.querySelector('#select').style.color = "green"
+```
+## March 25 2020 / DOM
+---
