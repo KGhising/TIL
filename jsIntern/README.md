@@ -59,44 +59,44 @@ document.querySelector('#select').style.color = "green"
 * clear all task
 * store in local storage
 
-## Appending child in parent tag with `appendChild`
+### Appending child in parent tag with `appendChild`
 ```
 li.appendChild(document.createTextNode(taskInput.value));
 ```
-## Creating new element with `createElement`
+### Creating new element with `createElement`
 ```
 const li = document.createElement('li');
 ```
-## Remove child element with `removeChild`
+### Remove child element with `removeChild`
 ```
 tasklist.removeChild(tasklist.firstChild);
 ```
-we also can remove element with the use of only `remove()` method
+we can also remove element with the use of only `remove()` method
 ```
 e.target.parentElement.parentElement.remove();
 ```
 ## March 26 2020 / DOM
 ---
-DOM project - Task manager (Completed)
-## `getItem()` returns value of the specified Storage Object item.
+### DOM project - Task manager (Completed)
+### `getItem()` returns value of the specified Storage Object item.
 ```
 tasks = JSON.parse(localStorage.getItem('tasks'));
 ```
-## Use of `JSON.parse()` to exchange data
+### Use of `JSON.parse()` to exchange data
 JSON.parse() convert data to JS Object
 ```
 tasks = JSON.parse(localStorage.getItem('tasks'));
 ```
-## Use of `JSON.parse()` to exchange data
+### Use of `JSON.parse()` to exchange data
 
-## Use of `localStorage` to convert JS Object to String
+### Use of `localStorage` to convert JS Object to String
 Syntax: 
 ```
 myStorage = window.localStorage;
 
 localStorage.setItem('tasks', JSON.stringify(tasks));
 ```
-## Use of `forEach` , calls a function once for each element, for all `li` element with `collection-items` class it select in order
+### Use of `forEach` calls a function once for each element, for all `li` element with `collection-items` class it select in order
 ```
 document.querySelectorAll('.collection-items').forEach(function(task){
         const item = task.firstChild.textContent;
@@ -108,9 +108,41 @@ document.querySelectorAll('.collection-items').forEach(function(task){
         }
     });
 ```
-## Use `clear()` to remove all storage items
+### Use `clear()` to remove all storage items
 ```
 function clearTaskFromLocalStorage(){
     localStorage.clear();
 }
 ```
+## March 27 2020 / DOM
+---
+### DOM project - Loan calculator
+### Use of `addEventListener` to attach event handler to element like `click` , `mouseover` , `mouseout` , `keyup` , `keydown` etc
+```
+document.getElementById('submit').addEventListener('click', function(e){
+    document.getElementById('results').style.display = 'none';
+
+    e.preventDefault();
+});
+```
+### Use of `setTimeout` call function after specified time
+```
+setTimeout(calculateResult, 2000);
+```
+### Use fo `parseFloat` parse string and return float number
+```
+const calculateInterest = parseFloat(interest.value) / 100 / 12;
+```
+### Use of `math.POW()` takes value `a, b` and return `a `to the power `b`
+```
+ const x = Math.pow(1 + calculateInterest, calculatePayment);
+```
+### Use of `insertBefore` takes two element `a, b` and insert `a` element before `b`
+```
+container.insertBefore(errorDiv, heading);
+```
+## March 28 2020 / Saturday
+---
+## March 28 2020 / DOM
+---
+### Saturday
