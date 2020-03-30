@@ -164,7 +164,7 @@ function Person(firstName, lastName) {
 }
 ```
 #### Use of `this` keyword and js method
-`this` keyword refer to parent onject
+`this` keyword refer to parent object
 
 ```javascript
 var person = {
