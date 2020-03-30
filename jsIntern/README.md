@@ -2,12 +2,12 @@
 ***
 ## March 23  2020 / Fundamentals
 ---
-### Using console `console`
+#### Using console `console`
 
 ```javascript
 console.log('Hello'); 
 ```
-### Single selector `getElementByID` , `querySelector`
+#### Single selector `getElementByID` , `querySelector`
 
 ```javascript
 document.getElementById('idSelector');
@@ -16,9 +16,9 @@ document.querySelector('.select').style.color = "red";
 document.querySelector('#select').style.color = "green"
 
 ```
-### Multiple selector `getElementByClassName` , `querySelectorAll` , `getElementByName` , `getElementByTagName`
+#### Multiple selector `getElementByClassName` , `querySelectorAll` , `getElementByName` , `getElementByTagName`
 
-### Type conversion
+#### Type conversion
 
 | Method        | Desxcription           |
 | :------------- |:-------------| 
@@ -28,7 +28,7 @@ document.querySelector('#select').style.color = "green"
 | Number('text') | Convert text into number |
 | Number(false/true) | Convert booleans to number 0/1 |
 
-### String Concatination `concat()`
+#### String Concatination `concat()`
 ```javascript
 var str1 = "Hello ";
 var str2 = "world!";
@@ -38,13 +38,13 @@ string.concat(Hello, world!);
 ```
 ## March 24 2020 / DOM
 ---
-### Using `innerHTML` to add `text` in selector `id` and `style`
+#### Using `innerHTML` to add `text` in selector `id` and `style`
 ```javascript
 const selector = document.getElementById('idSelector');
 selector.innerHTML = 'Things i did today!';
 selector.style.color = "skyblue";
 ```
-### Styling `li` items using `tag` , `class` , `id` selector
+#### Styling `li` items using `tag` , `class` , `id` selector
 ```javascript
 document.querySelector('li').style.color = 'yellow';
 document.querySelector('.select').style.color = "red";
@@ -59,15 +59,15 @@ document.querySelector('#select').style.color = "green"
 * clear all task
 * store in local storage
 
-### Appending child in parent tag with `appendChild`
+#### Appending child in parent tag with `appendChild`
 ```javascript
 li.appendChild(document.createTextNode(taskInput.value));
 ```
-### Creating new element with `createElement`
+#### Creating new element with `createElement`
 ```javascript
 const li = document.createElement('li');
 ```
-### Remove child element with `removeChild`
+#### Remove child element with `removeChild`
 ```javascript
 tasklist.removeChild(tasklist.firstChild);
 ```
@@ -78,24 +78,24 @@ e.target.parentElement.parentElement.remove();
 ## March 26 2020 / DOM
 ---
 ### DOM project - Task manager (Completed)
-### `getItem()` returns value of the specified Storage Object item.
+#### `getItem()` returns value of the specified Storage Object item.
 ```javascript
 tasks = JSON.parse(localStorage.getItem('tasks'));
 ```
-### Use of `JSON.parse()` to exchange data
+#### Use of `JSON.parse()` to exchange data
 JSON.parse() convert data to JS Object
 ```javascript
 tasks = JSON.parse(localStorage.getItem('tasks'));
 ```
 
-### Use of `localStorage` to convert JS Object to String
+#### Use of `localStorage` to convert JS Object to String
 Syntax: 
 ```javascript
 myStorage = window.localStorage;
 
 localStorage.setItem('tasks', JSON.stringify(tasks));
 ```
-### Use of `forEach` calls a function once for each element, for all `li` element with `collection-items` class it select in order
+#### Use of `forEach` calls a function once for each element, for all `li` element with `collection-items` class it select in order
 ```javascript
 document.querySelectorAll('.collection-items').forEach(function(task){
         const item = task.firstChild.textContent;
@@ -107,7 +107,7 @@ document.querySelectorAll('.collection-items').forEach(function(task){
         }
     });
 ```
-### Use `clear()` to remove all storage items
+#### Use `clear()` to remove all storage items
 ```javascript
 function clearTaskFromLocalStorage(){
     localStorage.clear();
@@ -116,7 +116,7 @@ function clearTaskFromLocalStorage(){
 ## March 27 2020 / DOM
 ---
 ### DOM project - Loan calculator
-### Use of `addEventListener` to attach event handler to element like `click` , `mouseover` , `mouseout` , `keyup` , `keydown` etc
+#### Use of `addEventListener` to attach event handler to element like `click` , `mouseover` , `mouseout` , `keyup` , `keydown` etc
 ```javascript
 document.getElementById('submit').addEventListener('click', function(e){
     document.getElementById('results').style.display = 'none';
@@ -124,19 +124,19 @@ document.getElementById('submit').addEventListener('click', function(e){
     e.preventDefault();
 });
 ```
-### Use of `setTimeout` call function after specified time
+#### Use of `setTimeout` call function after specified time
 ```javascript
 setTimeout(calculateResult, 2000);
 ```
-### Use fo `parseFloat` parse string and return float number
+#### Use fo `parseFloat` parse string and return float number
 ```javascript
 const calculateInterest = parseFloat(interest.value) / 100 / 12;
 ```
-### Use of `math.POW()` takes value `a, b` and return `a `to the power `b`
+#### Use of `math.POW()` takes value `a, b` and return `a `to the power `b`
 ```javascript
  const x = Math.pow(1 + calculateInterest, calculatePayment);
 ```
-### Use of `insertBefore` takes two element `a, b` and insert `a` element before `b`
+#### Use of `insertBefore` takes two element `a, b` and insert `a` element before `b`
 ```javascript
 container.insertBefore(errorDiv, heading);
 ```
