@@ -143,7 +143,7 @@ container.insertBefore(errorDiv, heading);
 ## March 28 2020 / Saturday
 ---
 ### Saturday
-## March 28 2020 / OOP
+## March 29 2020 / OOP
 ---
 ### Creating object in JavaScript
 #### Using object literal
@@ -184,3 +184,38 @@ class Name {
 }
 myname = new Name("Kishor Ghising");
 ```
+## March 30 2020 / OOP booklist project(completed)
+---
+#### Prototype in js
+JavaScript objects inherit properties and methods from prototype
+```javascript
+// instantiate UI
+    const ui = new UI();
+// remove book from list
+    ui.deleteBook(e.target)
+
+
+// Remove list items
+UI.prototype.deleteBook = function(target){
+    if(target.className = 'delete'){
+        target.parentElement.parentElement.remove();
+    }
+}
+```
+#### Use of `preventDefault()`
+`preventDefault()` method cancels the event from default action
+```javescript
+  e.preventDefault();
+```
+#### ES6 java script use Class to create Consturctor
+```javascript
+  class Book{
+    constructor(title, author, isbn){
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+    }
+  } 
+```
+## March 28 2020
+---
