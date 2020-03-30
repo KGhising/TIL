@@ -207,7 +207,7 @@ UI.prototype.deleteBook = function(target){
 ```javescript
   e.preventDefault();
 ```
-#### ES6 java script use Class to create Consturctor
+#### Use java script ES6 Class to create Consturctor
 ```javascript
   class Book{
     constructor(title, author, isbn){
