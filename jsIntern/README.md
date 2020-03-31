@@ -20,7 +20,7 @@ document.querySelector('#select').style.color = "green"
 
 #### Type conversion
 
-| Method        | Desxcription           |
+| Method        | Description           |
 | :------------- |:-------------| 
 |   toString()     | Convert to string | 
 | String(x)      | Convert number into String      |
@@ -186,7 +186,7 @@ myname = new Name("Kishor Ghising");
 ```
 ## March 30 2020 / OOP booklist project(completed)
 ---
-#### Prototype in js
+### Prototype in js
 JavaScript objects inherit properties and methods from prototype
 ```javascript
 // instantiate UI
@@ -217,5 +217,74 @@ UI.prototype.deleteBook = function(target){
     }
   } 
 ```
-## March 28 2020
+## March 31 2020
+---
+### AsynchronousJS
+#### `XMLHttpRequest()` used to request data from a web server.
+```javascript
+ const xhr = new XMLHttpRequest();
+```
+#### open() method opens a new browser window depending on your browser settings and the parameter values
+Here `open()` is used to open txt and JSON file
+```javascript
+  xhr.open('GET', 'data.txt', true);
+  xhr.open('GET', 'employee.json', true);
+```
+#### `responseText` returns the text received from a server following a request being `send()`
+```javascript
+  xhr.onload = function(){
+      if(this.status == 200){
+          document.getElementById('data').innerHTML = `
+              <h1>${this.responseText}<h1/>
+          `;
+      }
+    }
+    xhr.send(); 
+```
+#### AJAX server response
+| property      | Description           |
+| :------------- |:-------------| 
+|   readyState     | Holds the status of the XMLHttpRequest.
+||0: request not initialized 
+||1: server connection established
+||2: request received
+||3: processing request
+||4: request finished and response is ready | 
+| status      | 200: "OK"
+||403: "Forbidden"
+||404: "Page not found" |
+
+#### Checking server response<br/>
+-parsing one JSON object
+```javascript
+  if(this.status == 200){
+      const employee = JSON.parse(this.response);
+      const output = `
+          <ul>
+              <li>ID: ${employee.id}</li>
+              <li>Name: ${employee.name}</li>
+              <li>Company: ${employee.company}</li>
+          </ul>
+      `;
+      document.getElementById('employee').innerHTML = output;
+  }
+```
+-parsing one JSON object using `forEach`
+```javascript
+  if(this.status == 200){
+    const employees = JSON.parse(this.response);
+    let output = '';
+    employees.forEach(function(employee){
+        output += `
+        <ul>
+            <li>ID: ${employee.id}</li>
+            <li>Name: ${employee.name}</li>
+            <li>Company: ${employee.company}</li>
+        </ul>
+    `;
+    });
+    document.getElementById('employees').innerHTML = output;
+}
+```
+## March 1 2020
 ---
