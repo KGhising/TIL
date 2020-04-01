@@ -288,3 +288,98 @@ Here `open()` is used to open txt and JSON file
 ```
 ## March 1 2020
 ---
+### Custom HTTP library
+#### Get post from library using `get`
+```javascript
+  const http = new HTTP;
+
+    // GET post
+    http.get('https://jsonplaceholder.typicode.com/posts', function(err, posts){
+        if(err){
+            console.log(err);
+        }    
+        else{
+            console.log(posts);
+        }
+    });
+```
+#### Create post on library using `post`
+```javascript
+  // Create data
+  const data = {
+      title: 'Custom post',
+      body: 'Custom body'
+  };
+
+  //create POST
+  http.post('https://jsonplaceholder.typicode.com/posts', data, function(err, posts){
+      if(err){
+          console.log(err);
+      }    
+      else{
+          console.log(posts);
+      }
+  });
+```
+#### Update post on library using `put`
+```javascript
+  // Update Post
+  http.put('https://jsonplaceholder.typicode.com/posts/1', data, function(err, posts){
+      if(err){
+          console.log(err);
+      }    
+      else{
+          console.log(posts);
+      }
+  });
+```
+#### Delete post on library using `delete`
+```javascript
+  // delete data
+  http.delete('https://jsonplaceholder.typicode.com/posts/1', function(err, response){
+      if(err){
+          console.log(err);
+      }    
+      else{
+          console.log(response);
+      }
+});
+```
+#### Asynchronous `callbacks` function
+Asynchronous callbacks are functions specified as arguments when calling a function which will start executing code in the background
+```javascript
+// callback function
+  function createPost(post, callback){
+    setTimeout(function(){
+        posts.push(post);
+        callback();
+    }, 2000);
+}
+```
+#### Use of `promise`
+A promise is an object that may produce a single value some time in the future: either a resolved value, or a reason that it’s not resolved (reject)
+Promise has four states
+* fulfilled
+* rejected
+* pending
+* settled
+```javascript
+  // creating post/ promise
+  function createPost(post, ){
+    return new Promise(function(resolve, reject){
+        setTimeout(function(){
+            posts.push(post);
+
+            const err = true;
+            if(!err){
+                resolve();
+            }else{
+                reject('Error: something wrong');
+            }
+        }, 2000);
+    });
+  }
+```
+## March 2 2020
+---
+
