@@ -286,7 +286,7 @@ Here `open()` is used to open txt and JSON file
     document.getElementById('employees').innerHTML = output;
 }
 ```
-## March 1 2020
+## April 1 2020
 ---
 ### Custom HTTP library
 #### Get post from library using `get`
@@ -380,7 +380,7 @@ Promise has four states
     });
   }
 ```
-## March 3 2020
+## April 2 2020 / Github finder
 ---
 ### Github API project - Github finder
 #### Fetching profile and repo from Github API
@@ -408,5 +408,282 @@ Promise has four states
     }
 }
 ```
+### April 3, 5 2020 / Weather Project
+---
+#### Loading DOM
+```javascript
+    // get weather on DOM load
+    document.addEventListener('DOMContentLoaded', getWeather);
+```
+#### Fetcching Weather from openWeather API
+```javascript
+    
+class Weather {
+    constructor(){
+        this.apiKey = '82005d27a116c2880c8f0fcb866998a0';
+        this.city = 'Kathmandu';
+    }
 
+    // fetch weather from API
+    async getWeather(){
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=${this.apiKey}`);
 
+        const responseData = await response.json();
+        return responseData;   
+    }
+    // change weather Location
+    changeLocation(city){
+        this.city = city;
+    }
+} 
+```
+### April 6 2020 / Error handliing
+---
+#### types of error
+* reference error
+* type error
+* syntax error  
+* URI error
+
+```javascript
+    // reference error
+    myFunction();
+
+    // type error
+    null.myFunction();
+
+    // syntax error
+    eval('Hello World');
+
+    // URI error
+    decodeURIComponent('%');
+```
+
+#### Error handling with try and catch
+```javascript
+    try{
+        if(!user.name){
+            // throw 'User has no name';
+            throw new SyntaxError('User has no name');
+        }
+
+    }
+    catch(e){
+        // console error
+        console.log(e);
+
+        // console error name
+        console.log(e.name);
+
+        // console error messsage
+        console.log(e.message);
+
+        // console to check if its this error
+        console.log(e instanceof ReferenceError);
+    }
+
+```
+### Regular expression
+#### evaluation function
+```javascript
+    // Regular expression write inside /...../ 
+    let re;
+    re = /hello/;
+    re = /hello/i; // `i` makes case insensitive
+```
+#### Use of `exec()`
+```javascript
+    // exec() function will return result in array if there is matchor null
+    const result = re.exec('Wow, hello world');
+    console.log(result);
+    console.log(result[0]);
+    console.log(result.index);
+    console.log(result.input);
+```
+#### Use of `test()`
+```javascript
+    // test() function return true or false
+    const result = re.test('Hello');
+    console.log(result);
+```
+#### Use of `match()`
+```javascript
+    // match() function will return result array or null
+    const str = 'hello world';
+    const result = str.match(re);
+    console.log(result);
+```
+#### Use of `search()`
+```javascript
+    // search() function return index of first match if not found return -1
+    const str = 'hello worlds';
+    const result = str.search(re);
+    console.log(result);
+```
+#### Use of `replace()`
+```javascript
+    // replace() will return new string with some or all matches of a pattern
+    const str = 'hello worlds';
+    const newStr = str.replace(re, 'hi');
+    console.log(newStr)
+```
+#### Use of metaCharacter symbol
+```javascript
+    // meta character symbol
+    re = /^h/i; // ^ must start with
+    re = /d$/i; // $ must ends with
+    re = /^hello$/i; // must start and end with hello
+    re = /h.llo/i; // . match any one character
+    re = /h*llo/i; // * match any character 0 or more times
+    re = /gre?a?y/i; // ? optionalcharacter a and e
+    re = /gre?a?y\?/i; // \ escape character character
+
+    // Brackets [] character sets
+    re = /gr[ae]y/i; // must be a or e
+    re = /[GF]ray/; // must be G or F
+    re = /[^GF]ray/; // Match except G or F
+    re = /[A-Z]ray/; // Match any uppercase character between A-Z  
+    re = /[a-zA-Z]ray/; // Match any character between a-z or A-Z
+    re = /[0-9]ray/; // Match any digit between
+
+    // Braces {} -Quantifier
+    re = /hel{2}o/i; // must occur exactly {m} times
+    re = /hel{2,4}o/i; // must occur exactly between {n,m} times
+    re = /hel{2,}o/i; // must occur atleast between {m,} times
+
+    // parethesis () -grouping
+    re = /([0-9]x){3}/; // Grouping [0-9]x 
+
+    // shorthand character classes
+    re = /\w/; // Word character - alphanumeric
+    re = /\w+/; // + 1 or more character
+    re = /\W/; // non-word character
+    re = /\d/; // match any digit 
+    re = /\d+/; // match any digit 0 or more times
+    re = /\D/; // match any non-digit
+    re = /\s/; // match white space character
+    re = /\S/; // match white non-space character
+    re = /hell\b/i; // world boundary
+
+    // assertion
+    re = /x(?=y)/; // match x only if its followed by y
+    re = /x(?!y)/; // match x only if its not-followed by y
+```
+#### Form validation
+* Name: /^[a-zA-Z]{2,10}$/
+* Zipcode: /^[0-9]{5}(-[0-9]{4})?$/
+* Email: /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/
+* Number: ^\(?\d{3}\)?[- ]?\d{3}[- ]\d{4}$/
+
+### April 7 2020 / ES6 features
+---
+#### Iterators are an implementation of Iterable objects such as maps, arrays and strings which enables us to iterate over them using `next()`
+```javascript
+    function nameIterator(names) {
+      let nextIndex = 0;
+
+      return {
+        next: function() {
+          return nextIndex < names.length ?
+          { value: names[nextIndex++], done: false } :
+          { done: true }
+        }
+      }
+    // Create an array of names
+    const namesArr = ['Jack', 'Jill', 'John'];
+    // Init iterator and pass in the names array
+    const names = nameIterator(namesArr);
+    console.log(names.next().value);
+```
+#### Generator Functions on the other hand, “run until yield/return/end”
+```javascript
+    // ID Creator
+    function* createIds() {
+    let index = 1;
+
+    while(true) {
+        yield index++;
+    }
+    }
+
+    const gen = createIds();
+
+    console.log(gen.next().value);
+```
+#### Destructuring is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.
+```javascript
+    // Object Destructuring
+    const person = {
+    name: 'kishor',
+    age: 21,
+    city: 'bhaktapur',
+    gender: 'Male',
+    sayHello: function(){
+        console.log('Hello');
+    }
+    }
+    // Old ES5
+    // const name = person.name,
+    //       age = person.age,
+    //       city = person.city;
+
+    // New ES6 Destructuring
+    const { name, age, city, sayHello } = person;
+    console.log(name, age, city);
+    sayHello();
+``` 
+#### `Map()` Map is a collection of elements where each element is stored as a Key, value pair.
+```javascript
+    const map1 = new Map();
+    // Set Keys
+    const key1 = 'some string',
+        key2 = {},
+        key3 = function() {};
+    // Set map values by key
+    map1.set(key1, 'Value of key1');
+    map1.set(key2, 'Value of key2');
+    map1.set(key3, 'Value of key3');
+
+    console.log(map1.get(key1), map1.get(key2), map1.get(key3));
+```
+#### `Set()` Sets are a new object type included in ES6 that allow the creation of collections of unique values
+```javascript
+    const set1 = new Set();
+
+    // Add values to set
+    set1.add(100);
+    set1.add('A string');
+    set1.add({name: 'John'});
+    set1.add(true);
+    set1.add(100);
+
+    const set2 = new Set([1, true, 'string']);
+    console.log(set2);
+    console.log(set1);
+```
+
+#### `Symbols()` Once you create a symbol, its value is kept private and for internal use but can access through method in `return`
+```javascript
+    // unique object key
+    const KEY1 = Symbol();
+    const KEY2 = Symbol('sym2');
+
+    const obj = {};
+
+    obj[KEY1] = 'prop1';
+    obj[KEY2] = 'prop2';
+    obj.key3 = 'prop3';
+    obj.key4 = 'prop4';
+
+    // console.log(obj[KEY1]);
+    // symbols are not counted in for....in
+    for(let i in obj){
+        console.log(`${i}: ${obj[i]}`);
+    }
+
+    // Symbol are ignored by JSON.stringify()
+    console.log(JSON.stringify({key: 'prop'}));
+    console.log(JSON.stringify({[Symbol('sym')]: 'prop'}));
+```
+### April 8 2020 / ES6 features
+---
