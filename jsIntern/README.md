@@ -685,5 +685,20 @@ class Weather {
     console.log(JSON.stringify({key: 'prop'}));
     console.log(JSON.stringify({[Symbol('sym')]: 'prop'}));
 ```
-### April 8 2020 / ES6 features
+### April 8 2020 / Trace Calories project
 ---
+#### Project Overview
+This application track your Calorie consumtion and store data in local storage
+#### Features
+* Add food items and calories
+* Can edit your data
+* Delete data from local storage
+*  You ca clear all data
+*  Calculate your calories
+
+#### Project Implementation
+It has four Controller
+* Storage 
+* Items
+* UI
+* App Controller
